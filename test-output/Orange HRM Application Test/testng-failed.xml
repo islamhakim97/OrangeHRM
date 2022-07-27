@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Orange HRM Application Test]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="End To End Test with Chrome browser(failed)">
+    <parameter name="Browser" value="chrome"/>
+    <classes>
+      <class name="com.OrangeHRM.testcases.ResetPasswordTest">
+        <methods>
+          <include name="checkForgotPasswordFunctionality"/>
+          <include name="setup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.OrangeHRM.testcases.ResetPasswordTest -->
+      <class name="com.OrangeHRM.testcases.LoginPageTest">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="PerformValidLoginTest"/>
+          <include name="CheckLoginwithInvalidPasswordOrmail"/>
+        </methods>
+      </class> <!-- com.OrangeHRM.testcases.LoginPageTest -->
+    </classes>
+  </test> <!-- End To End Test with Chrome browser(failed) -->
+</suite> <!-- Failed suite [Orange HRM Application Test] -->
