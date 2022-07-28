@@ -38,7 +38,7 @@ public class TestUtils extends testBase{
 			
 			int i=rand.nextInt(5) +1; //1->5
 			int j=rand.nextInt(6) +1; //1->6
-			name+=i+j;
+			name+=i+""+j;
 		}
 		FileUtils.copyFile(srcFile, new File("D:\\Eclipse\\OrangeHRM2\\Snapshots\\"+name+".png"));
 	}
@@ -50,7 +50,7 @@ public class TestUtils extends testBase{
 
 			int i=rand.nextInt(5) +1;
 			int j=rand.nextInt(6) +1;
-			videoname+=i+j;
+			videoname+=i+""+j;
 		}
 		
 		Recorder=new ATUTestRecorder("D:\\Eclipse\\OrangeHRM2\\RecordedVideoes",videoname,false);

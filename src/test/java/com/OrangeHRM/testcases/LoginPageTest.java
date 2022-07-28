@@ -32,7 +32,7 @@ public class LoginPageTest extends testBase {
 	 
 
 	@Parameters({ "Browser" })
-	@BeforeMethod()
+	@BeforeMethod(groups= {"E2E","Regression"})
 	public void setup(Method method, String browser) throws IOException, ATUTestRecorderException 
 																									
 																									
@@ -48,7 +48,7 @@ public class LoginPageTest extends testBase {
 
 	}
 
-	@AfterMethod()
+	@AfterMethod(groups= {"E2E","Regression"})
 	public void tearDown(Method method, ITestResult result) throws IOException, ATUTestRecorderException // ITestResult is TestNG listener to log test																										// status[pass|fail|skipped]
 
 	{
@@ -67,7 +67,7 @@ public class LoginPageTest extends testBase {
 	}
 
 	// Login TCs
-	@Test(priority = 1) // [1-pass] groups= {"Regression"},alwaysRun = true
+	@Test(priority = 1,groups= {"E2E","Regression"}) // [1-pass] groups= {"Regression"},alwaysRun = true
 	public void PerformValidLoginTest() throws IOException {
 		String validUser = prop.getProperty("username");
 		String validpass = prop.getProperty("password");

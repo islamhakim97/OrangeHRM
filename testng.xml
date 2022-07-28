@@ -19,47 +19,39 @@
   </test> 
   
 
- <!--  #####################################[End To End Test with FireFox browser]##########################
+ <!--  #####################################[End To End Test with FireFox browser]##########################-->
  
  <test thread-count="5" name="End To End Test with FireFox browser">
    <parameter name="Browser" value="firefox"></parameter>
+   <groups>
+   <run><include name="E2E"></include></run>
+   </groups>
     <classes>
-    <class name="com.OrangeHRM.testcases.LoginPageTest"> 
-     <methods>
-       <include name="CheckLoginwithInvalidPasswordOrmail"></include>
-       </methods>
-     </class>
-      <class name="com.OrangeHRM.testcases.ResetPasswordTest">
-      <methods>
-      <include name="checkForgotPasswordFunctionality"></include>
-      </methods> </class>
-      <class name="com.OrangeHRM.testcases.ReportConfig"> </class>
+      <class name="com.OrangeHRM.testcases.ReportConfig"> 
+      </class>
   
     
       
           </classes> 
-  </test>  -->
+  </test> 
   
-  <!--  #####################################[End To End Test with Edge browser]##########################
+  <!--  #####################################[End To End Test with Edge browser]########################## -->
  
 <test thread-count="5" name="End To End Test with Edge browser">
    <parameter name="Browser" value="edge"></parameter>
     <classes>
-    <class name="com.OrangeHRM.testcases.LoginPageTest"> 
-     <methods>
-       <include name="CheckLoginwithInvalidPasswordOrmail"></include>
-       </methods>
-     </class>
+    <class name="com.OrangeHRM.testcases.LoginPageTest"> </class>
       <class name="com.OrangeHRM.testcases.ResetPasswordTest">
-      <methods>
+     <!-- <methods>
       <include name="checkForgotPasswordFunctionality"></include>
-      </methods> </class>
+      </methods> -->
+      </class>
       <class name="com.OrangeHRM.testcases.ReportConfig"> </class>
   
     
       
           </classes> 
-  </test>  -->
+  </test>  
 </suite> <!-- Orange HRM Application Test -->
 
   

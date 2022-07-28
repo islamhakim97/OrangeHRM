@@ -29,7 +29,7 @@ public class ResetPasswordTest extends testBase {
 	ResetPassword resetPassword;
 	
 	@Parameters({ "Browser" })
-	@BeforeMethod() //alwaysRun = true to run before TCs when Using groups in xml
+	@BeforeMethod(groups={"E2E","Regression"}) //alwaysRun = true to run before TCs when Using groups in xml
 	public void setup(Method method, String browser) throws IOException, ATUTestRecorderException 
 	{
 		initialization(browser);
@@ -42,7 +42,7 @@ public class ResetPasswordTest extends testBase {
 
 	}
 
-	@AfterMethod()
+	@AfterMethod(groups= {"E2E","Regression"})
 	public void tearDown(Method method, ITestResult result) throws IOException, ATUTestRecorderException // ITestResult is TestNG listener to log test status[pass|fail|skipped]
 	{
 
@@ -58,7 +58,7 @@ public class ResetPasswordTest extends testBase {
 	}
 
 	// Forgot Password Functionality
-	@Test(priority = 1) // [1-Fail]   //groups= {"Regression"}
+	@Test(priority = 1,groups= {"E2E","Regression"}) // [1-Fail]   
 	public void checkForgotPasswordFunctionality() throws IOException {
 		resetPassword = loginPage.checkForgotPassword();
 		boolean ar = resetPassword.checkEmailISent();
