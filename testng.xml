@@ -3,15 +3,15 @@
 <suite name="Orange HRM Application Test" parallel = "tests" > <!--parallel = "tests" methods/tests/instances-->
       
  <!--  #####################################[End To End Test with chrome browser]##########################-->
- <test thread-count="10" name="End To End Test with Chrome browser">
+ <test thread-count="5" name="End To End Test with Chrome browser">
    <parameter name="Browser" value="chrome"></parameter>
   
      <classes>
-      <class name="com.OrangeM.testcases.LoginPageTest"> 
+        <class name="com.OrangeHRM.testcases.LoginPageTest"> 
      <methods>
-      <include name="PerformValidLoginTest"></include>
+      <include name="CheckLoginwithInvalidPasswordOrmail"></include>
       </methods>
-     </class>
+       </class>
         <!--  <class name="com.OrangeHRM.testcases.ResetPasswordTest"></class> -->
       <class name="com.OrangeHRM.testcases.ReportConfig"> </class>
      </classes>
@@ -19,7 +19,7 @@
   </test> 
   
 
- <!--  #####################################[End To End Test with FireFox browser]##########################  -->
+ <!--  #####################################[End To End Test with FireFox browser]##########################   -->
  
  <test thread-count="10" name="End To End Test with FireFox browser">
    <parameter name="Browser" value="firefox"></parameter>
@@ -29,14 +29,14 @@
    <classes>
       <class name="com.OrangeHRM.testcases.LoginPageTest"> 
      <methods>
-      <exclude name="CheckLoginwithInvalidPasswordOrmail"></exclude>
+      <include name="CheckLoginwithInvalidPasswordOrmail"></include>
       </methods>
        </class>
-        <class name="com.OrangeHRM.testcases.ResetPasswordTest"></class>
+      <!--   <class name="com.OrangeHRM.testcases.ResetPasswordTest"></class>-->
       <class name="com.OrangeHRM.testcases.ReportConfig"> </class>
      </classes> 
 
-  </test> 
+  </test>
   
   <!--  #####################################[End To End Test with Edge browser]########################## 
  
