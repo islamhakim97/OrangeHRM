@@ -1,57 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Orange HRM Application Test">
+<suite name="Orange HRM Application Test" > <!--parallel = "tests" methods/tests/instances-->
       
  <!--  #####################################[End To End Test with chrome browser]##########################-->
- <test thread-count="5" name="End To End Test with Chrome browser">
+ <test thread-count="10" name="End To End Test with Chrome browser">
    <parameter name="Browser" value="chrome"></parameter>
   
      <classes>
       <class name="com.OrangeHRM.testcases.LoginPageTest"> 
-    <!--  <methods>
-       <include name="CheckLoginwithInvalidPasswordOrmail"></include>
-       </methods>-->
-       </class>
-    <class name="com.OrangeHRM.testcases.ResetPasswordTest"> </class>
+     <methods>
+      <include name="PerformValidLoginTest"></include>
+      </methods>
+     </class>
+        <!--  <class name="com.OrangeHRM.testcases.ResetPasswordTest"></class> -->
       <class name="com.OrangeHRM.testcases.ReportConfig"> </class>
-     </classes> 
+     </classes>
      
   </test> 
   
 
- <!--  #####################################[End To End Test with FireFox browser]##########################-->
+ <!--  #####################################[End To End Test with FireFox browser]##########################  
  
- <test thread-count="5" name="End To End Test with FireFox browser">
+ <test thread-count="10" name="End To End Test with FireFox browser">
    <parameter name="Browser" value="firefox"></parameter>
    <groups>
    <run><include name="E2E"></include></run>
    </groups>
-    <classes>
-      <class name="com.OrangeHRM.testcases.ReportConfig"> 
-      </class>
+   <classes>
+      <class name="com.OrangeHRM.testcases.LoginPageTest"> 
+     <methods>
+      <exclude name="CheckLoginwithInvalidPasswordOrmail"></exclude>
+      </methods>
+       </class>
+        <class name="com.OrangeHRM.testcases.ResetPasswordTest"></class>
+      <class name="com.OrangeHRM.testcases.ReportConfig"> </class>
+     </classes> 
+
+  </test> -->
   
-    
-      
-          </classes> 
-  </test> 
-  
-  <!--  #####################################[End To End Test with Edge browser]########################## -->
+  <!--  #####################################[End To End Test with Edge browser]########################## 
  
-<test thread-count="5" name="End To End Test with Edge browser">
+<test thread-count="10" name="End To End Test with Edge browser">
    <parameter name="Browser" value="edge"></parameter>
     <classes>
-    <class name="com.OrangeHRM.testcases.LoginPageTest"> </class>
+    <class name="com.OrangeHRM.testcases.LoginPageTest"> 
+     <methods>
+      <include name="PerformValidLoginTest"></include>
+      </methods> 
+    </class>
       <class name="com.OrangeHRM.testcases.ResetPasswordTest">
-     <!-- <methods>
-      <include name="checkForgotPasswordFunctionality"></include>
-      </methods> -->
+    
       </class>
       <class name="com.OrangeHRM.testcases.ReportConfig"> </class>
   
     
       
           </classes> 
-  </test>  
+  </test>  -->
 </suite> <!-- Orange HRM Application Test -->
 
   

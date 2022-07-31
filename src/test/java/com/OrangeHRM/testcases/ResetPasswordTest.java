@@ -34,23 +34,24 @@ public class ResetPasswordTest extends testBase {
 	{
 		initialization(browser);
 		loginPage = new LoginPage();// after you initialize your driver
+		String name =method.getName()+TestUtils.TCstime();//Assign Date and Time To VideoName
 		// Start Take Video :
-		TestUtils.StartTakeVideo(method.getName());
+		TestUtils.StartTakeVideo(name);
 		// log TestCases Names to Report
 		loginPage.getMainPage();
-		TestUtils.LogTCsNamesToREport(method.getName());
+		TestUtils.LogTCsNamesToREport(name);
 
 	}
 
 	@AfterMethod(groups= {"E2E","Regression"})
 	public void tearDown(Method method, ITestResult result) throws IOException, ATUTestRecorderException // ITestResult is TestNG listener to log test status[pass|fail|skipped]
-	{
-
+	{ 
+		String name =method.getName()+TestUtils.TCstime();//Assign Date and Time To picName
 		//  Take SnapShot:
-		TestUtils.TakePicture(method.getName());
+		TestUtils.TakePicture(name);
 		TestUtils.Recorder.stop();
 		// ** Log Test Status to the Report:
-		TestUtils.LogTestStatusToExtentReport(result);
+		TestUtils.LogTestStatusToExtentReport(result,name);
 		driver.quit();
 
 		// driver.close();

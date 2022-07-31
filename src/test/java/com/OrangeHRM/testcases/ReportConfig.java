@@ -20,7 +20,7 @@ public class ReportConfig extends testBase {
 	@BeforeSuite
 	public void start()
 	{
-		extent= new ExtentReports("D:\\Eclipse\\OrangeHRM2\\TestReport\\OrangeHRMReport.html",true);
+		extent= new ExtentReports("D:\\Eclipse\\OrangeHRM2\\TestReport\\ExtentReport.html",true);
 		extent.addSystemInfo("OS","Windows 10");
 		extent.addSystemInfo("Owner","Islam Hakim");
 		extent.addSystemInfo("TestName","OrangeHRM.com");

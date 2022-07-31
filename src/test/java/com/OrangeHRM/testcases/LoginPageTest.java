@@ -29,22 +29,26 @@ public class LoginPageTest extends testBase {
 
 	LoginPage loginPage;
 	HomePage homePage;
-	 
+	String date; 
 
 	@Parameters({ "Browser" })
 	@BeforeMethod(groups= {"E2E","Regression"})
 	public void setup(Method method, String browser) throws IOException, ATUTestRecorderException 
-																									
-																									
 
 	{
 		initialization(browser);
 		loginPage = new LoginPage();// after you initialize your driver
+		date=TestUtils.TCstime();
+		String name =method.getName()+date;//Assign DAte and Time To videoname
+		System.out.println(name);
+
 		// Start Take Video :
-		TestUtils.StartTakeVideo(method.getName());
+		TestUtils.StartTakeVideo(name);
 		loginPage.getMainPage();
 		// Log TCs Name To Report
-		TestUtils.LogTCsNamesToREport(method.getName());
+		System.out.println(name);
+		TestUtils.LogTCsNamesToREport(name);
+		System.out.println(name);
 
 	}
 
@@ -52,13 +56,15 @@ public class LoginPageTest extends testBase {
 	public void tearDown(Method method, ITestResult result) throws IOException, ATUTestRecorderException // ITestResult is TestNG listener to log test																										// status[pass|fail|skipped]
 
 	{
-
+		//String date=TestUtils.TCstime();
+		String name =method.getName()+date;//Assign Date and Time To picName
+		System.out.println(name);
 		//Take SnapShot:
-		TestUtils.TakePicture(method.getName());
+		TestUtils.TakePicture(name);
 		//Stop Video 
 		TestUtils.Recorder.stop();
 		//Log Test Status to the Report
-		TestUtils.LogTestStatusToExtentReport(result);
+		TestUtils.LogTestStatusToExtentReport(result,name);
 
 		driver.quit();
 
@@ -86,8 +92,28 @@ public class LoginPageTest extends testBase {
 		Assert.assertEquals(actualResult, true, "Login Success , With invalid Username Or Password");
 
 	}
+	@Test(priority=3,groups={"E2E"})
+	public void testLogo()
+	{
+		boolean actualResult=loginPage.checkLogo();
+		Assert.assertEquals(actualResult, true, "Logo is not Found");
+	}
+	@Test(priority=4,groups={"E2E"})
+	public void testURL()
+	{
+		String AR=driver.getCurrentUrl();
+		String ER="https://opensource-demo.orangehrmlive.com/";
+		Assert.assertEquals(AR, ER, "URL is not Correct");
+	}
+	@Test(priority=4,groups={"E2E"})
+	public void testTitle()
+	{
+		String AR=driver.getTitle();
+		String ER="OrangeHRM";
+		Assert.assertEquals(AR, ER, "Title is not Correct");
+	}
 
-	@DataProvider
+	@DataProvider()//parallel=true when u use parallel execution with data providers parallel=true
 	public Object[][] testLoginData() throws IOException {
 		// if you ** change the file name **[don't forget to change the File Path ]in
 		// the getDataFromExcel Method

@@ -32,6 +32,8 @@ public class LoginPage extends testBase {
 	// Forget Password Elements
 	@FindBy(linkText="Forgot your password?")
 	WebElement ForgetPass;
+	@FindBy(xpath="//img[@src='/webres_62e163f9522159.22803388/themes/default/images/login/logo.png']")
+	WebElement Logo;
 	
 	
 	
@@ -87,6 +89,14 @@ public class LoginPage extends testBase {
 		return new ResetPassword();
 		
     }
+    
+    //Check Logo
+    public boolean checkLogo()
+    {
+    	return Logo.isDisplayed();
+    }
+  //Check URL
+    
 
     
 

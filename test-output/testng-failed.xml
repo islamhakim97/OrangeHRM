@@ -4,25 +4,15 @@
   <test thread-count="5" name="End To End Test with Chrome browser(failed)">
     <parameter name="Browser" value="chrome"/>
     <classes>
-      <class name="com.OrangeHRM.testcases.ResetPasswordTest">
+      <class name="com.OrangeHRM.testcases.LoginPageTest">
         <methods>
-          <include name="checkForgotPasswordFunctionality"/>
+          <include name="testURL"/>
           <include name="setup"/>
           <include name="tearDown"/>
+          <include name="testLogo"/>
+          <include name="testTitle"/>
         </methods>
-      </class> <!-- com.OrangeHRM.testcases.ResetPasswordTest -->
+      </class> <!-- com.OrangeHRM.testcases.LoginPageTest -->
     </classes>
   </test> <!-- End To End Test with Chrome browser(failed) -->
-  <test thread-count="5" name="End To End Test with Edge browser(failed)">
-    <parameter name="Browser" value="edge"/>
-    <classes>
-      <class name="com.OrangeHRM.testcases.ResetPasswordTest">
-        <methods>
-          <include name="checkForgotPasswordFunctionality"/>
-          <include name="setup"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.OrangeHRM.testcases.ResetPasswordTest -->
-    </classes>
-  </test> <!-- End To End Test with Edge browser(failed) -->
 </suite> <!-- Failed suite [Orange HRM Application Test] -->
