@@ -2,8 +2,7 @@ package com.OrangeHRM.testcases;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
+
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -16,7 +15,6 @@ import com.Base.com.testBase;
 import com.OrangeHRM.pages.HomePage;
 import com.OrangeHRM.pages.LoginPage;
 import com.OrangeHRM.util.TestUtils;
-import com.relevantcodes.extentreports.LogStatus;
 
 import atu.testrecorder.exceptions.ATUTestRecorderException;
 
@@ -29,11 +27,11 @@ public class LoginPageTest extends testBase {
 
 	LoginPage loginPage;
 	HomePage homePage;
-	String date; 
+	String date;
 
 	@Parameters({ "Browser" })
 	@BeforeMethod(groups= {"E2E","Regression"})
-	public void setup(Method method, String browser) throws IOException, ATUTestRecorderException 
+	public void setup(Method method, String browser) throws IOException, ATUTestRecorderException
 
 	{
 		initialization(browser);
@@ -61,7 +59,7 @@ public class LoginPageTest extends testBase {
 		System.out.println(name);
 		//Take SnapShot:
 		TestUtils.TakePicture(name);
-		//Stop Video 
+		//Stop Video
 		TestUtils.Recorder.stop();
 		//Log Test Status to the Report
 		TestUtils.LogTestStatusToExtentReport(result,name);
@@ -113,7 +111,7 @@ public class LoginPageTest extends testBase {
 		Assert.assertEquals(AR, ER, "Title is not Correct");
 	}
 
-	@DataProvider()//parallel=true when u use parallel execution with data providers parallel=true
+	@DataProvider(parallel=true)//parallel=true when u use parallel execution with data providers parallel=true
 	public Object[][] testLoginData() throws IOException {
 		// if you ** change the file name **[don't forget to change the File Path ]in
 		// the getDataFromExcel Method

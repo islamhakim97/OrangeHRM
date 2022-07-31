@@ -27,14 +27,15 @@ public class ResetPasswordTest extends testBase {
 
 	LoginPage loginPage;
 	ResetPassword resetPassword;
-	
+	String date;
 	@Parameters({ "Browser" })
 	@BeforeMethod(groups={"E2E","Regression"}) //alwaysRun = true to run before TCs when Using groups in xml
 	public void setup(Method method, String browser) throws IOException, ATUTestRecorderException 
 	{
 		initialization(browser);
 		loginPage = new LoginPage();// after you initialize your driver
-		String name =method.getName()+TestUtils.TCstime();//Assign Date and Time To VideoName
+		date=TestUtils.TCstime();
+		String name =method.getName()+date;//Assign Date and Time To VideoName
 		// Start Take Video :
 		TestUtils.StartTakeVideo(name);
 		// log TestCases Names to Report
@@ -46,7 +47,7 @@ public class ResetPasswordTest extends testBase {
 	@AfterMethod(groups= {"E2E","Regression"})
 	public void tearDown(Method method, ITestResult result) throws IOException, ATUTestRecorderException // ITestResult is TestNG listener to log test status[pass|fail|skipped]
 	{ 
-		String name =method.getName()+TestUtils.TCstime();//Assign Date and Time To picName
+		String name =method.getName()+date;//Assign Date and Time To picName
 		//  Take SnapShot:
 		TestUtils.TakePicture(name);
 		TestUtils.Recorder.stop();
