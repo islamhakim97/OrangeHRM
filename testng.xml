@@ -7,7 +7,7 @@
    <parameter name="Browser" value="chrome"></parameter>
   
      <classes>
-      <class name="com.OrangeHRM.testcases.LoginPageTest"> 
+      <class name="com.OrangeM.testcases.LoginPageTest"> 
      <methods>
       <include name="PerformValidLoginTest"></include>
       </methods>
