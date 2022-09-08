@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
@@ -65,6 +66,13 @@ public class testBase {
 		    caps.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS, PhantomjsArgs);
 			 driver = new PhantomJSDriver(caps); 
 		
+		}else if (browser.equalsIgnoreCase("chrome-headless")) {
+			System.setProperty("webdriver.chrome.driver",
+					"D:\\Web Automation Using Selenium\\BrowsersDrivers\\chromedriver.exe");
+		   ChromeOptions options=new ChromeOptions();
+		   options.addArguments("--headless");
+		   options.addArguments("--window-size=1920,1080");
+		   driver = new ChromeDriver(options); 
 		}else if (browser.equalsIgnoreCase("safari")) {
 			/*
 			 * Configure safari driver Manually first in your MacbookAir : (Open terminal :
