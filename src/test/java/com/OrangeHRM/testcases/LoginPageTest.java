@@ -111,7 +111,7 @@ public class LoginPageTest extends testBase {
 		Assert.assertEquals(AR, ER, "Title is not Correct");
 	}
 
-	@DataProvider(parallel=true)//parallel=true when u use parallel execution with data providers parallel=true
+	@DataProvider(parallel=true )//parallel=true when u use parallel execution with data providers parallel=true
 	public Object[][] testLoginData() throws IOException {
 		// if you ** change the file name **[don't forget to change the File Path ]in
 		// the getDataFromExcel Method

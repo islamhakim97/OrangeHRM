@@ -10,6 +10,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
@@ -53,8 +56,16 @@ public class testBase {
 
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
-
-		} else if (browser.equalsIgnoreCase("safari")) {
+			//headless Browser Testing
+		} else if (browser.equalsIgnoreCase("headless")) {
+		    DesiredCapabilities caps=new DesiredCapabilities();
+		    caps.setJavascriptEnabled(true);
+		    caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,"D:\\Eclipse\\OrangeHRM2\\drivers\\phantomjs.exe");
+		    String[] PhantomjsArgs = {"--web-security=no","--ignore-ssl-errors=yes"};
+		    caps.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS, PhantomjsArgs);
+			 driver = new PhantomJSDriver(caps); 
+		
+		}else if (browser.equalsIgnoreCase("safari")) {
 			/*
 			 * Configure safari driver Manually first in your MacbookAir : (Open terminal :
 			 * [run 'cd usr/bin , safaridriver --enble', enable remote automation on
@@ -63,6 +74,7 @@ public class testBase {
 			 */
 			driver = new SafariDriver();
 		}
+		
 		// For web Driver listener
 		e_driver = new EventFiringWebDriver(driver);
 		weblistener = new WebListener();
