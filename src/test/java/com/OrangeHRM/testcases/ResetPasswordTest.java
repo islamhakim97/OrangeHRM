@@ -63,8 +63,9 @@ public class ResetPasswordTest extends testBase {
 	@Test(priority = 1,groups= {"E2E","Regression"}) // [1-Fail]   
 	public void checkForgotPasswordFunctionality() throws IOException {
 		resetPassword = loginPage.checkForgotPassword();
-		boolean ar = resetPassword.checkEmailISent();
-		Assert.assertEquals(ar, false, "You Can't Set a new Password");
+		String ER = "Reset Password link sent successfully";
+		String AR=resetPassword.checkEmailISent();
+		Assert.assertEquals(AR,ER, "You Can't Set a new Password");
 
 	}
 

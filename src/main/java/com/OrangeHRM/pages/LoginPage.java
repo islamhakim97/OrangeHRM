@@ -21,16 +21,17 @@ public class LoginPage extends testBase {
 		PageFactory.initElements(driver,this);
 	}
 	//WebElements
-    @FindBy(id="txtUsername")
+    @FindBy(name="username")
     WebElement Username;
-    @FindBy(id="txtPassword")
+    @FindBy(name="password")
     WebElement Password;
-	@FindBy(name="Submit")
+    @FindBy(xpath="//button[@type='submit']")
 	WebElement LoginBtn;
 	@FindBy(xpath="//span[text()='Invalid credentials']")
 	WebElement InvalidCredentials;
 	// Forget Password Elements
-	@FindBy(linkText="Forgot your password?")
+	//@FindBy(linkText="Forgot your password?")
+	@FindBy(xpath="//p[text()='Forgot your password? ']")
 	WebElement ForgetPass;
 	@FindBy(xpath="//img[@src='/webres_62e163f9522159.22803388/themes/default/images/login/logo.png']")
 	WebElement Logo;
@@ -93,9 +94,19 @@ public class LoginPage extends testBase {
     //Check Logo
     public boolean checkLogo()
     {
+    	js.executeScript("arguments[0].style.border='3px solid purple'", Logo);
     	return Logo.isDisplayed();
     }
   //Check URL
+    public String getURL()
+    {
+    	return driver.getCurrentUrl();
+    }
+    //Get Title
+    public String getTitle()
+    {
+    	return driver.getTitle();
+    }
     
 
     

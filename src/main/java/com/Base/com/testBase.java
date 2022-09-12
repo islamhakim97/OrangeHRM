@@ -35,24 +35,22 @@ public class testBase {
 	public testBase() throws IOException {
 		prop = new Properties();
 		FileInputStream fis = new FileInputStream(
-				"D:\\Eclipse\\OrangeHRM2\\src\\main\\java\\com\\OrangeHRM\\util\\config.properties");
+				"D:\\Eclipse\\OrangeExtentreport\\Data\\config.properties");
 		prop.load(fis);
 
 	}
 
 	public void initialization(String browser) {
 		if (browser.equalsIgnoreCase("chrome")) {
-//			 WebDriverManager.chromedriver().setup();
-//			 driver = new ChromeDriver();
-			System.setProperty("webdriver.chrome.driver",
-					"D:\\Web Automation Using Selenium\\BrowsersDrivers\\chromedriver.exe");
+    		 WebDriverManager.chromedriver().setup();
+			 driver = new ChromeDriver();
+			//System.setProperty("webdriver.chrome.driver",	"D:\\Web Automation Using Selenium\\BrowsersDrivers\\chromedriver.exe");
 			driver = new ChromeDriver();
 		} else if (browser.equalsIgnoreCase("firefox")) {
-              //WebDriverManager.firefoxdriver().setup();
-             //driver = new FirefoxDriver();
-			System.setProperty("webdriver.gecko.driver",
-					"D:\\Web Automation Using Selenium\\BrowsersDrivers\\geckodriver.exe");
-			driver = new FirefoxDriver();
+             WebDriverManager.firefoxdriver().setup();
+             driver = new FirefoxDriver();
+			//System.setProperty("webdriver.gecko.driver","D:\\Web Automation Using Selenium\\BrowsersDrivers\\geckodriver.exe");
+			//driver = new FirefoxDriver();
 		} else if (browser.equalsIgnoreCase("edge")) {
 
 			WebDriverManager.edgedriver().setup();
@@ -61,14 +59,14 @@ public class testBase {
 		} else if (browser.equalsIgnoreCase("headless")) {
 		    DesiredCapabilities caps=new DesiredCapabilities();
 		    caps.setJavascriptEnabled(true);
-		    caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,"D:\\Eclipse\\OrangeHRM2\\drivers\\phantomjs.exe");
+		    caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,"D:\\Eclipse\\OrangeExtentreport\\drivers\\phantomjs.exe");
 		    String[] PhantomjsArgs = {"--web-security=no","--ignore-ssl-errors=yes"};
 		    caps.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS, PhantomjsArgs);
 			 driver = new PhantomJSDriver(caps); 
 		
 		}else if (browser.equalsIgnoreCase("chrome-headless")) {
-			System.setProperty("webdriver.chrome.driver",
-					"D:\\Web Automation Using Selenium\\BrowsersDrivers\\chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver","D:\\Web Automation Using Selenium\\BrowsersDrivers\\chromedriver.exe");
+			WebDriverManager.chromedriver().setup();
 		   ChromeOptions options=new ChromeOptions();
 		   options.addArguments("--headless");
 		   options.addArguments("--window-size=1920,1080");

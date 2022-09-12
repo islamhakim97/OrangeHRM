@@ -17,22 +17,25 @@ public class ResetPassword extends testBase{
 	}
 	
 	//Page Factory Elements
-	@FindBy(id="securityAuthentication_userName")
+	@FindBy(name="username")
 	WebElement HRMUsername;
-	@FindBy(id="btnSearchValues")
+	@FindBy(xpath="//button[text()=' Reset Password ']")
 	WebElement ResetPassBtn;
-
+    //Reset Password link sent successfully
+	@FindBy(xpath="//h6[text()='Reset Password link sent successfully']")
+	WebElement ResetMessage;
 	
 	
    //Page Factory Methods
-	public boolean checkEmailISent()
+	public String checkEmailISent()
 	{
 		js.executeScript("arguments[0].style.border='3px solid purple'", HRMUsername);
 		HRMUsername.sendKeys("Islam Hakim");
 		js.executeScript("arguments[0].style.border='3px solid purple'", ResetPassBtn);
 		ResetPassBtn.click();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		return ResetPassBtn.isDisplayed();
+		js.executeScript("arguments[0].style.border='3px solid purple'", ResetMessage);
+		return ResetMessage.getText();
      	
 	}
 }
